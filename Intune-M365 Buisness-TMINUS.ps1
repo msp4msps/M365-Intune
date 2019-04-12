@@ -12,15 +12,21 @@ This script is specific to the M365 Business Sku
 After you run this script, you will have
 
 1.	A device compliance policy for:
-	 iOS (Configure line 1506)
-     Android (Configure line 1481)
-     Windows(Configure line 1528)
+	 	iOS (Configure line 1506)
+     		Android (Configure line 1481)
+     		Windows(Configure line 1528)
 2.	A device configuration policy for Windows Devices to have BitLocker(Configure line 1553)
 3.	Terms and Conditions for when users enroll(Configure line 1572)
 4.	Office 365 Business pushed out as a required App to window 10 devices(Configure line 1583)
 5.	Microsoft Authenticator pushed out as a required App for iOS and Android devices(Configure line 1619)
 
 #>
+
+#####################################################
+
+Install-Module -Name Microsoft.Graph.Intune
+
+Connect-MSGraph -AdminConsent
 
 ####################################################
 
