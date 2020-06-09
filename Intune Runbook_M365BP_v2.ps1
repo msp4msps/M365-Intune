@@ -8,14 +8,14 @@ See LICENSE in the project root for license information.
 .SYNOPSIS
 After you run this script, you will have
 
-1.  White labeled Terms and Conditions
-2.	A device compliance policy for: Windows, iOS/ipad, Android for Work, Android Device Owner, macOS
-3.	A Windows 10 Endpoint Protection Profile for Windows Devices for Silent Bitlocker Encryption
-4.	365 Business Suite to Windows 10 and MacOS
-4.	Office Suite for iOS and Android (Word, PowerPoint, Excel, Teams, OneDrive, Outlook)
-5.	Microsoft Authenticator pushed out as a required App for iOS and Android devices
-6.  App Protection Policies for Android and iOS without enrollment
-7.  Windows Information Protection policies with or without enrollment (2 policies)
+1.White labeled Terms and Conditions
+2.A device compliance policy for: Windows, iOS/ipad, Android for Work, Android Device Owner, macOS
+3.A Windows 10 Endpoint Protection Profile for Windows Devices for Silent Bitlocker Encryption
+4.365 Business Suite to Windows 10 and MacOS
+5.Office Suite for iOS and Android (Word, PowerPoint, Excel, Teams, OneDrive, Outlook)
+6.Microsoft Authenticator pushed out as a required App for iOS and Android devices
+7.App Protection Policies for Android and iOS without enrollment
+8.Windows Information Protection policies with or without enrollment (2 policies)
 
 #>
 
