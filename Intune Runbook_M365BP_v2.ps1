@@ -1,4 +1,4 @@
-﻿<#
+<#
 .COPYRIGHT
 Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
 See LICENSE in the project root for license information.
@@ -242,7 +242,7 @@ param
 
         if($Limit){
 
-        $iTunesUrl = "https://itunes.apple.com/search?country=us&media=software&entity=software,iPadSoftware&term=Microsoft&_=644961882755"
+        $iTunesUrl = "https://itunes.apple.com/search?country=us&media=software&entity=software,iPadSoftware&term=$SearchString&limit=$limit"
     
         }
 
@@ -3143,6 +3143,10 @@ if($Applications) {
             $Create_App = Add-iOSApplication -itunesApp $iApp
 
             $ApplicationId = $Create_App.id
+            
+            Write-Host "Creating Application"
+            Write-Host
+            Write-Host
 
             $Assign_App = Add-ApplicationAssignment -ApplicationId $ApplicationId -TargetGroupId $TargetGroupId -InstallIntent "required"
             Write-Host "Assigned '$AADGroup' to $($Create_App.displayName)/$($create_App.id) with" $Assign_App.InstallIntent "install Intent"
@@ -3285,7 +3289,7 @@ Write-Host
 
 ##############################################################
 
-write-host "Publishing" ($MicrosoftAuthenticator | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($MicrosoftAuthenticator | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_MicrosoftAuthenticator = Add-AndroidApplication -JSON $MicrosoftAuthenticator
 
@@ -3293,7 +3297,7 @@ Write-Host "Application created as $($Create_MicrosoftAuthenticator.displayName)
 Write-Host
 
 
-        $ApplicationId1 = $Create_App1.id
+        $ApplicationId1 = $Create_MicrosoftAuthenticator.id
 
         $Assign_App1 = Add-ApplicationAssignment -ApplicationId $ApplicationId1 -TargetGroupId $TargetGroupId -InstallIntent "Required"
         Write-Host "Assigned '$AADGroup' to $($Create_App1.displayName)/$($create_App1.id) with" $Assign_App1.InstallIntent "install Intent"
@@ -3307,7 +3311,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($Outlook | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($Outlook | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_Outlook = Add-AndroidApplication -JSON $Outlook 
 
@@ -3318,7 +3322,7 @@ Write-Host
         $ApplicationId1 = $Create_Outlook.id
 
         $Assign_App1 = Add-ApplicationAssignment -ApplicationId $ApplicationId1 -TargetGroupId $TargetGroupId -InstallIntent "Required"
-        Write-Host "Assigned '$AADGroup' to $($Create_App1.displayName)/$($create_App1.id) with" $Assign_App1.InstallIntent "install Intent"
+        Write-Host "Assigned '$AADGroup' to $($Create_Outlook.displayName)/$($create_Outlook.id) with" $Assign_App1.InstallIntent "install Intent"
 
         Write-Host
         Write-Host
@@ -3328,7 +3332,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($Word| ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($Word| ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_Word = Add-AndroidApplication -JSON $Word
 
@@ -3347,7 +3351,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($Excel | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($Excel | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_Excel = Add-AndroidApplication -JSON $Excel 
 Write-Host "Application created as $($Create_Excel.displayName)/$($create_Excel.id)"
@@ -3366,7 +3370,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($Teams | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($Teams | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_Teams = Add-AndroidApplication -JSON $Teams 
 
@@ -3385,7 +3389,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($OneDrive | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($OneDrive | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_OneDrive = Add-AndroidApplication -JSON $Excel 
 
@@ -3404,7 +3408,7 @@ Write-Host
 
 ##################################################
 
-write-host "Publishing" ($PowerPoint | ConvertFrom-Json).displayName -ForegroundColor Yellow
+write-host "Publishing Android" ($PowerPoint | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
 $Create_PowerPoint = Add-AndroidApplication -JSON $PowerPoint 
 
