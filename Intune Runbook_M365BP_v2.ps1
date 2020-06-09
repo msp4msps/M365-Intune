@@ -8,14 +8,14 @@ See LICENSE in the project root for license information.
 .SYNOPSIS
 After you run this script, you will have
 
-1.White labeled Terms and Conditions
-2.A device compliance policy for: Windows, iOS/ipad, Android for Work, Android Device Owner, macOS
-3.A Windows 10 Endpoint Protection Profile for Windows Devices for Silent Bitlocker Encryption
-4.365 Business Suite to Windows 10 and MacOS
-5.Office Suite for iOS and Android (Word, PowerPoint, Excel, Teams, OneDrive, Outlook)
-6.Microsoft Authenticator pushed out as a required App for iOS and Android devices
-7.App Protection Policies for Android and iOS without enrollment
-8.Windows Information Protection policies with or without enrollment (2 policies)
+1.  White labeled Terms and Conditions
+2.	A device compliance policy for: Windows, iOS/ipad, Android for Work, Android Device Owner, macOS
+3.	A Windows 10 Endpoint Protection Profile for Windows Devices for Silent Bitlocker Encryption
+4.	365 Business Suite to Windows 10 and MacOS
+4.	Office Suite for iOS and Android (Word, PowerPoint, Excel, Teams, OneDrive, Outlook)
+5.	Microsoft Authenticator pushed out as a required App for iOS and Android devices
+6.  App Protection Policies for Android and iOS without enrollment
+7.  Windows Information Protection policies with or without enrollment (2 policies)
 
 #>
 
@@ -275,7 +275,6 @@ param
 }
 
 ####################################################
-
 Function Add-iOSApplication(){
 
 <#
@@ -377,7 +376,7 @@ $Resource = "deviceAppManagement/mobileApps"
         };
     };
 
-    $JSON2 = ConvertTo-Json $graphApp
+    $JSON = ConvertTo-Json $graphApp
 
     # Step 3 - Publish the application to Graph
     Write-Host "Creating application via Graph"
@@ -463,7 +462,7 @@ $Resource = "deviceAppManagement/mobileApps/$ApplicationId/assign"
 
         }
 
-$JSON2 = @"
+$JSON = @"
 {
     "mobileAppAssignments": [
     {
@@ -479,7 +478,7 @@ $JSON2 = @"
 "@
 
     $uri = "https://graph.microsoft.com/$graphApiVersion/$($Resource)"
-    Invoke-RestMethod -Uri $uri -Headers $authToken -Method Post -Body $JSON2 -ContentType "application/json"
+    Invoke-RestMethod -Uri $uri -Headers $authToken -Method Post -Body $JSON -ContentType "application/json"
 
     }
     
@@ -497,6 +496,7 @@ $JSON2 = @"
     break
 
     }
+
 }
 
 ###################################################################
@@ -3395,7 +3395,7 @@ Write-Host
 
 write-host "Publishing Android" ($OneDrive | ConvertFrom-Json).displayName -ForegroundColor Yellow
 
-$Create_OneDrive = Add-AndroidApplication -JSON $Excel 
+$Create_OneDrive = Add-AndroidApplication -JSON $OneDrive 
 
 Write-Host "Application created as $($Create_OneDrive.displayName)/$($create_OneDrive.id)"
 Write-Host
